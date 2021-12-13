@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=XMLBeans
+comment1.params=o\ path
+comment1.target=void\ write(java.util.List,\ java.lang.String)
+comment1.text=\n\ que\ representan\ todos\ los\ elemntos\ de\ un\ objeto\ bean\ \n\ <java></java>\ y\ <object></object>\ especiales\n
+comment2.params=path
+comment2.target=java.util.ArrayList\ read(java.lang.String)
+comment3.params=o\ path
+comment3.target=void\ add(java.lang.Object,\ java.lang.String)
+numComments=4

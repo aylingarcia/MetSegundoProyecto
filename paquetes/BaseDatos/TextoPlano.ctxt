@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=TextoPlano
+comment1.params=path
+comment1.target=java.util.ArrayList\ read(java.lang.String)
+comment2.params=path\ d\ append\ eti
+comment2.target=void\ write(java.lang.String,\ java.util.ArrayList,\ boolean,\ java.lang.String[])
+comment3.params=p\ d
+comment3.target=void\ add(java.lang.String,\ java.util.ArrayList)
+comment4.params=
+comment4.target=void\ cerrar()
+comment5.params=path
+comment5.target=boolean\ isCSV(java.lang.String)
+numComments=6

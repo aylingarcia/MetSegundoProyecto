@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Pedido
+comment1.params=
+comment1.target=Pedido()
+comment1.text=\n\ la\ orden\ debe\ ser\ la\ que\ contiene\ los\ especiales\ agregados\ al\ final\!\n
+comment2.params=p
+comment2.target=void\ agregarPlatillo(Platillo)
+comment3.params=
+comment3.target=int\ calcularTiempo()
+comment4.params=p
+comment4.target=void\ validarPlatillo(Platillo)
+numComments=5

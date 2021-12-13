@@ -1,5 +1,5 @@
 package clases;
 
-public class Ensalada extends Platillo {
+public class Ensalada  {
     // solo admite componentes de tipo ensalada
 }

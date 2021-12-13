@@ -1,7 +1,19 @@
 #BlueJ class context
 comment0.target=Platillo
-comment1.params=componente
-comment1.target=boolean\ existe(java.lang.String)
-comment2.params=c
-comment2.target=boolean\ insertarComponente(Componente)
-numComments=3
+comment1.params=principal
+comment1.target=Platillo(Componente[])
+comment2.params=componente
+comment2.target=boolean\ existeComponente(Componente)
+comment3.params=c
+comment3.target=boolean\ insertarComponente(Componente)
+comment4.params=n\ c
+comment4.target=void\ aumentarComponente(int,\ Componente)
+comment5.params=
+comment5.target=double\ calcularCosto()
+comment6.params=c
+comment6.target=void\ removeComponente(Componente)
+comment7.params=c
+comment7.target=int\ getCantComponente(Componente)
+comment8.params=
+comment8.target=java.util.HashMap\ getComponentes()
+numComments=9

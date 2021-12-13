@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Test_Platillo
+comment1.params=
+comment1.target=Test_Platillo()
+comment2.params=
+comment2.target=void\ setUp()
+comment3.params=
+comment3.target=void\ tearDown()
+comment4.params=
+comment4.target=void\ testInexistenciaComponente()
+comment5.params=
+comment5.target=void\ testExistenciaComponente()
+comment6.params=
+comment6.target=void\ testEliminacionComponente()
+comment7.params=
+comment7.target=void\ testConservarComponentePrincipal()
+comment8.params=
+comment8.target=void\ testProbarIncrementoDecrementoComponenteEnPlatillo()
+comment9.params=
+comment9.target=void\ testComponenteExistente()
+numComments=10

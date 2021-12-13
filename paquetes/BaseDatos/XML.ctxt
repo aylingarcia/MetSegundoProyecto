@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=XML
+comment1.params=o\ path
+comment1.target=void\ buildXML(java.lang.Object,\ java.lang.String)
+comment2.params=path\ e
+comment2.target=java.lang.Object\ readXML(java.lang.String,\ java.lang.Class)
+numComments=3

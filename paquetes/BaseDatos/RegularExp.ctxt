@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=RegularExp
+comment1.params=cad
+comment1.target=boolean\ verifyCSV(java.lang.String)
+comment2.params=cad
+comment2.target=boolean\ verifyExt(java.lang.String)
+comment3.params=path
+comment3.target=void\ verifyPath(java.lang.String)
+comment4.params=path
+comment4.target=boolean\ verifyXML(java.lang.String)
+comment5.params=path
+comment5.target=boolean\ verifySerializable(java.lang.String)
+numComments=6
