@@ -52,4 +52,9 @@ public class Test_Pedido
     public void testComportamientoPlatilloEnPedido() {
         pedido.agregarPlatillo(platilloPrueba);
     }
+
+    @Test
+    public void test() {
+        
+    }
 }

@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=EventoSonidos
+comment0.text=\n\ esta\ clase\ se\ ocupa\ de\ realizar\ acciones\ para\ todas\ \n\ las\ palabras\ que\ nuestro\ reconocedor\ capte\ \n
+comment1.params=re
+comment1.target=void\ resultAcepted(javax.speech.recognition.ResultEvent)
+numComments=2

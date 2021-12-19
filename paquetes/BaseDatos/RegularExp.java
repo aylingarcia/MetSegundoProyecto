@@ -1,4 +1,4 @@
-package PaqueteBD;
+package paquetes.BaseDatos;
 
 import java.util.regex.*;
 

@@ -1,4 +1,4 @@
-package PaqueteBD;
+package paquetes.BaseDatos;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

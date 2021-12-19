@@ -11,12 +11,12 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.AbstractCollection;
 
-public class newJPanel extends javax.swing.JPanel {
+public class Edicion extends javax.swing.JPanel {
 
     /**
      * Creates new form newJPanel
      */
-    public newJPanel() {
+    public Edicion() {
         initComponents();
     }
 

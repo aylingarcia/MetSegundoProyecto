@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
 
 import static org.mockito.Mockito.*;
 import org.mockito.*;
@@ -17,7 +19,11 @@ public class Test_Platillo {
     public Test_Platillo()
     {
     }
-
+    
+    @BeforeAll
+    public void setBefore() {
+        
+    }
     @BeforeEach
     public void setUp()
     {
@@ -30,6 +36,7 @@ public class Test_Platillo {
     public void tearDown()
     {
     }
+    
     @Test
     public void testInexistenciaComponente() {
         assertFalse(platilloPrueba.existeComponente(new Componente("arroz", "blanco", 15)));
@@ -67,5 +74,9 @@ public class Test_Platillo {
     @Test
     public void testComponenteExistente() {
         assertFalse(platilloPrueba.insertarComponente(principal));
+    }
+    @Test
+    public void test() {
+        // este test nos enfocamos el 
     }
 }

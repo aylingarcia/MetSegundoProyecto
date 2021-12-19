@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 
 public class Platillo implements Serializable{
+    // no debe tener en la caracteristicas 
     protected final ArrayList<Componente> caracteristicas;
     // referente a una caracteristica de un platillo en especifico
     // tal que silpancho tiene carne de apanado ...
