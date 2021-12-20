@@ -7,14 +7,16 @@ import java.io.Serializable;
 
 public class Platillo implements Serializable{
     // no debe tener en la caracteristicas 
+    private String titulo;
     protected final ArrayList<Componente> caracteristicas;
     // referente a una caracteristica de un platillo en especifico
     // tal que silpancho tiene carne de apanado ...
     // caso de que no lo tenga entonces no podria llamarse silpancho
     protected HashMap<Componente, Integer> componentes;
         
-    public Platillo(Componente... principal) {
+    public Platillo(String t, Componente... principal) {
         caracteristicas = new ArrayList<>();
+        titulo = t;
         componentes = new HashMap<>();
         for (Componente c: principal) {
             caracteristicas.add(c);
@@ -58,5 +60,8 @@ public class Platillo implements Serializable{
     }
     public HashMap<Componente, Integer> getComponentes() {
         return componentes;
+    }
+    public String getTitulo() {
+        return titulo;
     }
 }

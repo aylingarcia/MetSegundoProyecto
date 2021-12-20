@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Platillo
-comment1.params=principal
-comment1.target=Platillo(Componente[])
+comment1.params=t\ principal
+comment1.target=Platillo(java.lang.String,\ Componente[])
 comment2.params=componente
 comment2.target=boolean\ existeComponente(Componente)
 comment3.params=c
@@ -16,4 +16,6 @@ comment7.params=c
 comment7.target=int\ getCantComponente(Componente)
 comment8.params=
 comment8.target=java.util.HashMap\ getComponentes()
-numComments=9
+comment9.params=
+comment9.target=java.lang.String\ getTitulo()
+numComments=10

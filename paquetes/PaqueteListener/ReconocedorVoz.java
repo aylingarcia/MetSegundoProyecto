@@ -1,6 +1,7 @@
 package paquetes.PaqueteListener;
 
-import javax.speech.*;
+import javax.speech.Central;
+import javax.speech.EngineModeDesc;
 import javax.speech.recognition.*;
 
 import java.io.IOException;
@@ -8,40 +9,61 @@ import java.io.FileReader;
 
 import java.util.Locale;
 
-public class ReconocedorVoz {
-    private static Recognizer reconocedor;
-    
-    public void iniciar() throws EngineException {
-        reconocedor = Central.createRecognizer(new EngineModeDesc(Locale.ROOT));
+import visual.*;
 
-        reconocedor.allocate();
+import javax.swing.JOptionPane;
+
+import paquetes.BaseDatos.*;
+
+public class ReconocedorVoz extends ResultAdapter implements Runnable {
+    static Recognizer reconocedorVoz;
+    private ManejoEventos eventos;
+
+    public ReconocedorVoz(ManejoEventos m) {
+        eventos = m;
+    }
+
+    @Override
+    public void resultAccepted(ResultEvent re) {
         try {
-            FileReader gramatica =new FileReader("diccionario.txt");
-
-            RuleGrammar rg = reconocedor.loadJSGF(gramatica);
-            rg.setEnabled(true);
-
-            reconocedor.addResultListener(new EventoSonidos());
-
-            reconocedor.commitChanges();
-            reconocedor.requestFocus();
-            reconocedor.resume();
-        } catch (java.io.FileNotFoundException fnfe) {
-            fnfe.printStackTrace();
-        } catch (GrammarException ge) {
-            ge.printStackTrace();
-        } catch (AudioException ae) {
-            ae.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
+            Result res = (Result)(re.getSource());
+            ResultToken tokens[] = res.getBestTokens();
+            for (int i=0; i < tokens.length; i++){
+                String accion = tokens[i].getSpokenText();
+                eventos.ejecutar(accion);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-    
+
+    public void iniciar() {
+        try {
+            reconocedorVoz = Central.createRecognizer(new EngineModeDesc(Locale.ROOT));
+            reconocedorVoz.allocate();
+
+            FileReader gramatica = new FileReader("diccionario.txt");
+
+            RuleGrammar reglaGramatica = reconocedorVoz.loadJSGF(gramatica);
+            reglaGramatica.setEnabled(true);
+
+            reconocedorVoz.addResultListener(new ReconocedorVoz(eventos));
+            reconocedorVoz.commitChanges();
+            reconocedorVoz.requestFocus();            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+    }
+
     public void terminar() {
         try {
-            reconocedor.deallocate();
-        } catch (EngineException ee) {
-            ee.printStackTrace();
+            reconocedorVoz.deallocate();
+        } catch (Exception e) {
         }
+    }
+
+    @Override
+    public void run() {
+        iniciar();
     }
 }

@@ -3,5 +3,15 @@ grammar sentence;
 
 public <sentence> = 
 [<dato0>]
+[<dato1>]
+[<dato2>]
+[<dato3>]
+[<dato4>]
+[<dato5>]
 ;
-<dato0> = Cerrar;
+<dato0> = cerrar;
+<dato1> = ayuda;
+<dato2> = inicio;
+<dato3> = editar pedido;
+<dato4> = editar platillo;
+<dato5> = algo;
