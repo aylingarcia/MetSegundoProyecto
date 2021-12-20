@@ -1,11 +1,15 @@
-package visual;
+package visual.PanelesAYUDA;
 
-public class panelAyuda extends javax.swing.JPanel {
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class PanelAyuda extends JPanel {
 
     /**
      * Creates new form panelAyuda
      */
-    public panelAyuda() {
+    public PanelAyuda() {
         initComponents();
     }
 

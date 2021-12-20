@@ -7,6 +7,8 @@ import javax.swing.*;
 
 import paquetes.PaqueteListener.*;
 
+import visual.PanelesAYUDA.*;
+
 public class MiMenuBar extends JMenuBar {
     private final String version = "1.0.1";
     
@@ -125,7 +127,7 @@ public class MiMenuBar extends JMenuBar {
     }
     
     private void abrirFAQ() {
-        actual.setVentana("FAQ", new panelAyuda());
+        actual.setVentana("FAQ", new PanelAyuda());
     }
     public void setVentana(VentanaP frame) {
         actual = frame;

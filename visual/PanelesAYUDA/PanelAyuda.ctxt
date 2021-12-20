@@ -1,7 +1,7 @@
 #BlueJ class context
-comment0.target=panelAyuda
+comment0.target=PanelAyuda
 comment1.params=
-comment1.target=panelAyuda()
+comment1.target=PanelAyuda()
 comment1.text=\n\ Creates\ new\ form\ panelAyuda\n
 comment2.params=
 comment2.target=void\ initComponents()
