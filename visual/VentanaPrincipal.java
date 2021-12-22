@@ -11,6 +11,8 @@ public class VentanaPrincipal extends JFrame {
 
     public VentanaPrincipal() {
         eventos = new ManejoEventos(this);
+        eventos.generarVentanaprincipal();
+        crearMenu(false);
     }
     
     public void setVentana(JPanel panel) {
@@ -37,7 +39,7 @@ public class VentanaPrincipal extends JFrame {
         menu.add(item);
         item.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
-                    // te lleva a la pantalla de inicio
+                    eventos.generarVentanaprincipal();
                 }
             });
         item = new JMenuItem("Cerrar");
@@ -120,7 +122,8 @@ public class VentanaPrincipal extends JFrame {
             }
         });
         setJMenuBar(menuBar);
-        config();
+        //config();
+        recargarVentana();
     }
 
     private void borrarLoQueHay() {
@@ -136,6 +139,12 @@ public class VentanaPrincipal extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         if (!isActive())
             setVisible(true);
+        repaint();
+        pack();
+    }
+    public void recargarVentana() {
+        setLocationRelativeTo(null);
+        setResizable(false);
         repaint();
         pack();
     }

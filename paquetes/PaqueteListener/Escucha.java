@@ -12,6 +12,7 @@ public class Escucha extends ResultAdapter
 
     static Recognizer recognizer;
     String gst;
+    private static String location = "D:\\informatica\\Met y Tec de programacion\\MetSegundoProyecto\\paquetes\\PaqueteListener\\RuleGrammars\\diccionario.txt";
 
     @Override
     public void resultAccepted(ResultEvent re)
@@ -55,7 +56,7 @@ public class Escucha extends ResultAdapter
             recognizer = Central.createRecognizer(new EngineModeDesc(Locale.ROOT));
             recognizer.allocate();
 
-            FileReader grammar1 =new FileReader("Gramatica.txt");
+            FileReader grammar1 =new FileReader(location);
 
             RuleGrammar rg = recognizer.loadJSGF(grammar1);
             rg.setEnabled(true);

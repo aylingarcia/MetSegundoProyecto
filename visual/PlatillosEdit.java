@@ -26,7 +26,6 @@ public class PlatillosEdit extends JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         botonAutomatico = new javax.swing.JButton();
@@ -36,18 +35,6 @@ public class PlatillosEdit extends JPanel{
         botonPersonalizado = new javax.swing.JButton();
         imagePedidoPersonalizado = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        
         jLabel1.setText("Pedido Automatico");
 
         botonAutomatico.setText("Elegir opcion");
@@ -154,7 +141,6 @@ public class PlatillosEdit extends JPanel{
     private javax.swing.JButton botonPersonalizado;
     private javax.swing.JPanel imagePedidoAutomatico;
     private javax.swing.JPanel imagePedidoPersonalizado;
-    private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

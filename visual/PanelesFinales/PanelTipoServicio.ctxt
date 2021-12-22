@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=PanelTipoServicio
+comment1.params=frameContenedor
+comment1.target=PanelTipoServicio(visual.VentanaPrincipal)
+comment2.params=
+comment2.target=void\ initComponents()
+comment3.params=ae
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=ae
+comment4.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment5.params=personalizado
+comment5.target=void\ cambiarPanel(boolean)
+numComments=6

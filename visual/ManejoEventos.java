@@ -2,6 +2,8 @@ package visual;
 
 import visual.PanelesAYUDA.*;
 import visual.PanelesFinales.*;
+import visual.PanelesEdicion.*;
+import java.io.IOException;
 
 import clases.*;
 
@@ -14,32 +16,33 @@ public class ManejoEventos {
     private VentanaPrincipal frame;
     private Thread escucha;
     private ReconocedorVoz microfono;
-    
+
     public ManejoEventos(VentanaPrincipal ventana) {
         frame = ventana;
     }
+
     public void ejecutar(String a) {
         switch (a){
             case "ayuda": 
-                generarVentanaAyuda();
-                break;
+            generarVentanaAyuda();
+            break;
             case "inicio":
-                generarVentanaprincipal();
-                break;
+            generarVentanaprincipal();
+            break;
             case "cerrar" :
-                cerrarApp();
-                break;
+            cerrarApp();
+            break;
             case "pedido automatico":
-                
+
             case "pedido personalizado":
-                
+
             case "editar pedido":
-                
+
             case "editar platillo":
-                
+
             default: 
-                generarVentanaAyudaMicrofono();
-                break;
+            generarVentanaAyudaMicrofono();
+            break;
         }
     }
 
@@ -49,9 +52,10 @@ public class ManejoEventos {
     }
 
     public void generarVentanaprincipal() {
-        return;
+        JPanel panel = new PanelTipoServicio(frame);
+        frame.setVentana(panel);
     }
-    
+
     public void generarPanelPlatillo() {
         JPanel panel = new PanelComponente(new Componente(null, null, 0));
         frame.setVentana(panel);
@@ -62,11 +66,13 @@ public class ManejoEventos {
     }
 
     public void habilitarMicrofono() {
-        if (escucha.isAlive())
-            desabilitarMicrofono();
-        escucha = new Thread(microfono= new ReconocedorVoz(this));
-        escucha.start();
-        microfono.run();
+        try {
+            if (escucha !=null)
+                escucha.stop();
+            escucha = new Thread(microfono= new ReconocedorVoz(this));
+            escucha.start();
+            microfono.run();
+        } catch (IOException ioe) {}
     }
 
     public void desabilitarMicrofono() {
@@ -74,6 +80,7 @@ public class ManejoEventos {
             escucha.stop();
         }
     }
+
     public void generarVentanaAyudaMicrofono() {
         JPanel panel = new PanelAyudaMicrofono();
         frame.setVentana(panel);
