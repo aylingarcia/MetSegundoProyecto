@@ -9,7 +9,11 @@ package visual.ventanas;
  * @author Aylin
  */
 public class factura extends javax.swing.JFrame {
-
+    /**
+     * IMPORTANTE: una factura sera una nueva ventana donde muestre
+     * todos los datos de la factura, incluidos nombre de usuario, precios 
+     * totales y parciales, junto a una breve descripcion para nuestra factura
+     */
     /**
      * Creates new form factura
      */
@@ -169,10 +173,6 @@ public class factura extends javax.swing.JFrame {
                 new factura().setVisible(true);
             }
         });
-    }
-    
-    public javax.swing.JPanel getPanel() {
-        return jPanel1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

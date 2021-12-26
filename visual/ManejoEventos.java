@@ -1,8 +1,7 @@
 package visual;
 
-import visual.PanelesAYUDA.*;
-import visual.PanelesFinales.*;
-import visual.PanelesEdicion.*;
+
+import visual.FactoryMethod.*;
 import java.io.IOException;
 
 import clases.*;
@@ -16,6 +15,7 @@ public class ManejoEventos {
     private VentanaPrincipal frame;
     private Thread escucha;
     private ReconocedorVoz microfono;
+    private PanelFactory factoryPanel;
 
     public ManejoEventos(VentanaPrincipal ventana) {
         frame = ventana;
@@ -47,18 +47,18 @@ public class ManejoEventos {
     }
 
     public void generarVentanaAyuda() {
-        JPanel panel = new PanelAyuda();
-        frame.setVentana(panel);
+        factoryPanel = new PanelAyudaFactory(frame);
+        frame.setVentana(factoryPanel.crearPanel());
     }
 
     public void generarVentanaprincipal() {
-        JPanel panel = new PanelTipoServicio(frame);
-        frame.setVentana(panel);
+        factoryPanel = new PanelInicioFactory(frame);
+        frame.setVentana(factoryPanel.crearPanel());
     }
 
-    public void generarPanelPlatillo() {
-        JPanel panel = new PanelComponente(new Componente(null, null, 0));
-        frame.setVentana(panel);
+    public void generarPanelTipoPedido() {
+        factoryPanel = new PanelTipoServicioFactory(frame);
+        frame.setVentana(factoryPanel.crearPanel());
     }
 
     public void cerrarApp() {
@@ -74,6 +74,11 @@ public class ManejoEventos {
             microfono.run();
         } catch (IOException ioe) {}
     }
+    
+    public void generarPanelCreacionUsuario() {
+        factoryPanel = new PanelNuevoUsuarioFactory(frame);
+        frame.setVentana(factoryPanel.crearPanel());
+    }
 
     public void desabilitarMicrofono() {
         if (escucha.isAlive()) {
@@ -82,8 +87,8 @@ public class ManejoEventos {
     }
 
     public void generarVentanaAyudaMicrofono() {
-        JPanel panel = new PanelAyudaMicrofono();
-        frame.setVentana(panel);
+        factoryPanel = new PanelAyudaMicrofonoFactory(frame);
+        frame.setVentana(factoryPanel.crearPanel());
     }
 
     public void verInformacion() {

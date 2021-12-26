@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import clases.*;
+
 public class VentanaPrincipal extends JFrame {
     private final String version = "1.0.1";
     private JPanel panelActual;
@@ -38,6 +40,13 @@ public class VentanaPrincipal extends JFrame {
         JMenuItem item = new JMenuItem("Hacer Pedido");
         menu.add(item);
         item.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    eventos.generarPanelTipoPedido();
+                }
+            });
+            item = new JMenuItem("Iniciar Sesion");
+            menu.add(item);
+            item.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     eventos.generarVentanaprincipal();
                 }
@@ -151,5 +160,9 @@ public class VentanaPrincipal extends JFrame {
 
     public String getVersion() {
         return version;
+    }
+    
+    public void generarFactura(Pedido p) {
+        //eventos.generarFactura(p, u);
     }
 }

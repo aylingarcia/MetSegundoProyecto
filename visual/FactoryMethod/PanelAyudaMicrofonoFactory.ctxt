@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=PanelAyudaMicrofonoFactory
+comment1.params=frame
+comment1.target=PanelAyudaMicrofonoFactory(visual.VentanaPrincipal)
+comment2.params=
+comment2.target=javax.swing.JPanel\ crearPanel()
+numComments=3

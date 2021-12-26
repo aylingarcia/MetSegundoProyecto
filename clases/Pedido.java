@@ -6,30 +6,33 @@ import java.util.HashMap;
 
 public class Pedido {
     private HashMap<Platillo, Integer> platillos;
-
+    private double                     costo;
     /**
      * la orden debe ser la que contiene los especiales agregados al final!
      */
     public Pedido() {
         platillos = new HashMap<>();
+        costo = 0;
     }
 
     public void agregarPlatillo(Platillo p) {
         try {
             validarPlatillo(p);
-            if (!platillos.containsKey(p))
-                platillos.put(p, 1);
-            else {
-                int ac = platillos.get(p);
-                platillos.put(p, ac+1);
-            }
+            int ac = 1;
+            if (platillos.containsKey(p))
+                int ac += platillos.get(p);
+            platillos.put(p, ac);
+            aumentarCosto(p.getCosto());
         } catch (Exception e) {
             // aqui debemos retornar el mensaje y seguir almacenando el platillo editando
         }
     }
+    private void aumentarCosto(double c) {
+        costo += c;
+    }
 
-    public int calcularTiempo() {
-        return 0;
+    public getCosto() {
+        return costo;
     }
 
     private void validarPlatillo(Platillo p) throws Exception {

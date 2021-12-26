@@ -3,9 +3,7 @@ package clases;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-import java.io.Serializable;
-
-public class Platillo implements Serializable{
+public class Platillo {
     // no debe tener en la caracteristicas 
     private String titulo;
     protected final ArrayList<Componente> caracteristicas;
@@ -13,9 +11,11 @@ public class Platillo implements Serializable{
     // tal que silpancho tiene carne de apanado ...
     // caso de que no lo tenga entonces no podria llamarse silpancho
     protected HashMap<Componente, Integer> componentes;
+    private double costo;
         
     public Platillo(String t, Componente... principal) {
         caracteristicas = new ArrayList<>();
+        costo = 0;
         titulo = t;
         componentes = new HashMap<>();
         for (Componente c: principal) {
@@ -43,16 +43,20 @@ public class Platillo implements Serializable{
         }
     }
     
-    public double calcularCosto() {
-        System.out.println(componentes.values().toString());
-        return 0;
+    public double getCosto() {
+        return costo;
     }
     
     public void removeComponente(Componente c) {
         // remove a componente pero si es que 
         // pertenece a las caracreristicas entonces no podemos quitarlo
-        if (!caracteristicas.contains(c))
+        if (!caracteristicas.contains(c)) {
+            aumentarCosto(-c.getCosto()*componentes.get(c));
             componentes.remove(c);
+        }
+    }
+    private void aumentarCosto(double c) {
+        costo += c;
     }
     
     public int getCantComponente(Componente c) {

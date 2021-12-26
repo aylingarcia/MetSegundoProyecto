@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=PanelCreacionUsuario
+comment1.params=f
+comment1.target=PanelCreacionUsuario(visual.VentanaPrincipal)
+comment10.params=evt
+comment10.target=void\ jComboBox1ActionPerformed(java.awt.event.ActionEvent)
+comment11.params=evt
+comment11.target=void\ jButton1ActionPerformed(java.awt.event.ActionEvent)
+comment12.params=ae
+comment12.target=void\ generarPantallaInicial(java.awt.event.ActionEvent)
+comment2.params=
+comment2.target=void\ initComponents()
+comment3.params=evt
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=evt
+comment4.target=void\ keyTyped(java.awt.event.KeyEvent)
+comment5.params=ae
+comment5.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment6.params=evt
+comment6.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment7.params=evt
+comment7.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment8.params=evt
+comment8.target=void\ jPasswordField1ActionPerformed(java.awt.event.ActionEvent)
+comment9.params=evt
+comment9.target=void\ jLabel2KeyTyped(java.awt.event.KeyEvent)
+numComments=13
