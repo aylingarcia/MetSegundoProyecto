@@ -8,6 +8,8 @@ package visual.ventanas;
  *
  * @author Aylin
  */
+import clases.*;
+
 public class factura extends javax.swing.JFrame {
     /**
      * IMPORTANTE: una factura sera una nueva ventana donde muestre
@@ -17,7 +19,7 @@ public class factura extends javax.swing.JFrame {
     /**
      * Creates new form factura
      */
-    public factura() {
+    public factura(Pedido p, String... datosUsuario) {
         initComponents();
          this.setTitle( "   factura ");
         this.setLocation( 400, 220);
@@ -30,7 +32,7 @@ public class factura extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents(Pedido p) {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -43,6 +45,7 @@ public class factura extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 204, 204));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            
             new Object [][] {
                 {null, null, null},
                 {null, null, null},

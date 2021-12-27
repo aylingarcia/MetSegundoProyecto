@@ -1,3 +1,17 @@
 #BlueJ class context
 comment0.target=PanelPlatillo
-numComments=1
+comment1.params=p
+comment1.target=PanelPlatillo(clases.Platillo)
+comment1.text=\n\ Creates\ new\ form\ PanelEdicionPedido\n
+comment2.params=p
+comment2.target=void\ initComponents(clases.Platillo)
+comment2.text=\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\n\ regenerated\ by\ the\ Form\ Editor.\n
+comment3.params=
+comment3.target=int\ getSize()
+comment4.params=i
+comment4.target=java.lang.String\ getElementAt(int)
+comment5.params=evt
+comment5.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment6.params=evt
+comment6.target=void\ CostoLabelActionPerformed(java.awt.event.ActionEvent)
+numComments=7

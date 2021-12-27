@@ -1,17 +1,21 @@
 package visual.PanelesFinales;
 
+import javax.swing.*;
+
+import java.util.ArrayList;
+
 import clases.Platillo;
 import clases.Componente;
 import clases.ComponenteEnsalada;
 
-public class PanelPlatillo {
-    public class PanelEdicionPedido extends javax.swing.JPanel {
-
+public class PanelPlatillo extends JPanel {
+    private Platillo platillo;
     /**
      * Creates new form PanelEdicionPedido
      */
-    public PanelEdicionPedido(Platillo p) {
-        initComponents(p);
+    public PanelPlatillo(Platillo p) {
+        platillo = p;
+        initComponents();
     }
 
     /**
@@ -21,7 +25,7 @@ public class PanelPlatillo {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents(Platillo p) {
+    private void initComponents() {
 
         labelTitulo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
@@ -33,16 +37,38 @@ public class PanelPlatillo {
         CostoLabel = new javax.swing.JTextField();
 
         labelTitulo.setEditable(false);
-        labelTitulo.setText(p.getTitulo());
+        labelTitulo.setText(p.getTitulo().toUpperCase());
 
         //labelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examples/MenuBarMicrofono.png"))); // NOI18N
         labelImagen.setLabelFor(jPanel2);
 
-        listaComponentes.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        listaComponentes.setModel(new javax.swing.AbstractListModel<Componente>() {
+            Componente[] componentes = {  };
+            public int getSize() { return componentes.length; }
+            public String getElementAt(int i) { return componentes[i]; }
         });
+
+        listaComponentes.addListSelectionListener(
+            new ListSelectionListener() {
+                @Override
+                public void valueChanged(ListSelectionEvent lse) {
+                    if (!lse.getValueIsAdjusting) {
+                        (listaComponentes.getSelectedItem())
+                            .addKeyListener(new KeyListener() {
+                                public void keyPressed(KeyEvent ke) {
+                                    int keyCode = ke.getKeyCode();
+                                    if (keyCode == KeyEvent.Vk_UP) {
+                                        //aumentar 
+                                    } else if(keyCode == KeyEvent.Vk_Down) {
+                                        //disminuir
+                                    }  
+                                }
+                            });
+                    }
+
+                }
+            }
+            );
         jScrollPane3.setViewportView(listaComponentes);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -83,7 +109,7 @@ public class PanelPlatillo {
         jLabel1.setText("Costo:");
 
         CostoLabel.setEditable(false);
-        CostoLabel.setText("$$");
+        CostoLabel.setText(platillo.getCosto()+"$$");
         CostoLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CostoLabelActionPerformed(evt);
@@ -130,15 +156,13 @@ public class PanelPlatillo {
 
 
     // Variables declaration - do not modify                     
-    private javax.swing.JTextField CostoLabel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField  CostoLabel;
+    private javax.swing.JLabel      jLabel1;
+    private javax.swing.JPanel      jPanel2;
+    private javax.swing.JPanel      jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel labelImagen;
-    private javax.swing.JTextField labelTitulo;
-    private javax.swing.JList<String> listaComponentes;
+    private javax.swing.JLabel      labelImagen;
+    private javax.swing.JTextField  labelTitulo;
+    private javax.swing.JList<Componente> listaComponentes;
     // End of variables declaration                   
-}
-
 }

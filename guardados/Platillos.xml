@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+
+<platillos>
+<platillo>
+	<titulo>titulo</titulo>
+	<componente>
+		<nombre>papa frita</nombre>
+		<estado>frita</estado>
+		<costo>10</costo>
+	</componente>
+
+</platillo>
+</platillos>

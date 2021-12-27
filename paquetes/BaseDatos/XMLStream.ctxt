@@ -1,3 +1,15 @@
 #BlueJ class context
 comment0.target=XMLStream
-numComments=1
+comment1.params=
+comment1.target=XMLStream()
+comment2.params=path\ listObj\ eti
+comment2.target=void\ write(java.lang.String,\ java.util.List,\ java.lang.String[])
+comment3.params=p
+comment3.target=void\ writePlatillos(clases.Platillo)
+comment4.params=
+comment4.target=java.util.ArrayList\ readPlatillo()
+comment5.params=
+comment5.target=java.util.ArrayList\ readComponente()
+comment6.params=node
+comment6.target=clases.Componente\ rescatarComponente(org.w3c.dom.Node)
+numComments=7

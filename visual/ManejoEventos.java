@@ -94,4 +94,8 @@ public class ManejoEventos {
     public void verInformacion() {
         JOptionPane.showMessageDialog(null, "Version + "+ frame.getVersion() + "\n NOMBRE DE LA APP");
     }
+
+    public void generarFactura() {
+        factura.main(new String[]{});
+    }
 }

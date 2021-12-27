@@ -1,33 +1,45 @@
 package paquetes.BaseDatos;
 
-import java.util.stream.Stream;
-import java.util.List;
-import java.util.ArrayList;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
 import javax.xml.transform.stream.*;
+import java.io.IOException;
 
-
-import org.w3c.dom.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
+import org.xml.sax.*;
+import org.w3c.dom.*;
 
-class XMLStream {
-    /*
+import java.io.File;
+import java.io.FileOutputStream;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import clases.*;
+
+
+public class XMLStream {
+    private DocumentBuilderFactory factory;
+    private DocumentBuilder docBuilder;
+    private Document doc;
+    private final String pathComponentes = "guardados/Componentes.xml";
+    private final String pathPlatillos = "guardados/Platillos.xml";
+
+    public XMLStream() {
+        factory = DocumentBuilderFactory.newInstance();
+    }
+
     public void write(String path, List<Object[]> listObj, String[] eti) {
         Document dom;
         Element element = null;
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
-            DocumentBuilder db = dbf.newDocumentBuilder();
+            DocumentBuilder db = factory.newDocumentBuilder();
             dom = db.newDocument();
             if(eti.length!=listObj.get(0).length) {
                 throw new Exception();
@@ -63,33 +75,74 @@ class XMLStream {
         }
     }
 
-    public List read(String path, String tag, String tags[]) {
-        ArrayList<String[]> lista = new ArrayList<>();
+    public void writePlatillos(Platillo p) {
+
+    }
+
+    public ArrayList<Platillo> readPlatillo() {
+        ArrayList<Platillo> lista = new ArrayList();
         try {
-            File file = new File(path);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(file);
+            File file = new File(pathPlatillos);
+
+            docBuilder = factory.newDocumentBuilder();
+            doc = docBuilder.parse(file);
 
             doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName(tag);
-
-            for (int i = 0; i<nList.getLength(); i++) {
-
-                Node nNode = nList.item(temp);
-                String[] aux = new String[tags.length];
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element element = (Element) nNode;
-                    for (int j = 0; j<tags.length; j++) {
-                        String a = element.getElementsByTagName(tags[j]).getTextContent();
-                        aux[j] = a;
-                    }
-                    lista.add(aux);
+            NodeList nodePlatillo = doc.getElementsByTagName("platillo");
+            String titulo = doc.getFirstChild().getNodeValue();
+            Platillo aux = new Platillo(titulo);
+            
+            for (int j = 0; j<nodePlatillo.getLength(); j++) {
+                System.out.println(nodePlatillo.item(j));
+                Node nodo = nodePlatillo.item(j);
+                NodeList nList = ((Element)nodo).getElementsByTagName("componente");
+                System.out.println(nList);
+                for (int i = 0; i<nList.getLength() ; i++) {
+                    System.out.println(nList);
+                    Node node = nList.item(i);
+                    aux.insertarComponente(rescatarComponente(node));
                 }
+                lista.add(aux);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return lista;
-    }*/
+    }
+
+    public ArrayList<Componente> readComponente() {
+        ArrayList<Componente> lista = new ArrayList();
+        try {
+            File file = new File(pathComponentes);
+            docBuilder = factory.newDocumentBuilder();
+            doc = docBuilder.parse(file);
+
+            doc.getDocumentElement().normalize();
+            NodeList nList = doc.getElementsByTagName("componente");
+            for (int i = 0; i<nList.getLength() ; i++) {
+                Node node = nList.item(i);
+                lista.add(rescatarComponente(node));
+            }
+        } catch (Exception ioe) {
+        }
+        return lista;
+    }
+
+    private Componente rescatarComponente(Node node) {
+        String nombre = "";
+        String estado = "";
+        int costo = 0;
+        try {
+            if (node.getNodeType() == Node.ELEMENT_NODE) {
+                Element element = (Element)node;
+                nombre = element.getElementsByTagName("nombre").item(0).getNodeValue();
+                //nombre = element.getElementsByTagName("nombre").item(0).getTextContent();
+                estado = element.getElementsByTagName("estado").item(0).getNodeValue();
+                costo = Integer.valueOf(element.getElementsByTagName("costo").item(0).getTextContent());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new Componente(nombre, estado, costo);
+    }
 }

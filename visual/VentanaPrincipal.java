@@ -10,11 +10,16 @@ public class VentanaPrincipal extends JFrame {
     private final String version = "1.0.1";
     private JPanel panelActual;
     private ManejoEventos eventos;
+    private Pedido pedido;
 
     public VentanaPrincipal() {
         eventos = new ManejoEventos(this);
         eventos.generarVentanaprincipal();
         crearMenu(false);
+    }
+    
+    private void setPedido(Pedido p) {
+        pedido = p;
     }
     
     public void setVentana(JPanel panel) {
@@ -163,6 +168,6 @@ public class VentanaPrincipal extends JFrame {
     }
     
     public void generarFactura(Pedido p) {
-        //eventos.generarFactura(p, u);
+        eventos.generarFactura(p, u);
     }
 }

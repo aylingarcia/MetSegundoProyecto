@@ -2,6 +2,8 @@ package visual.PanelesFinales;
 
 import visual.VentanaPrincipal;
 import visual.FactoryMethod.*;
+import java.util.Vector;
+import javax.swing.DefaultListCellRenderer;
 
 import clases.*;
 
@@ -9,10 +11,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EdicionPedido extends javax.swing.JPanel {
     private Pedido pedido;
     private PanelFactory factory;
     private VentanaPrincipal frame;
+    private final int limite = 15;
     /**
      * Creates new form EdicionPedido
      */
@@ -31,18 +37,33 @@ public class EdicionPedido extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         buttonTerminarPedido = new javax.swing.JButton();
         botonAgregarPlatillo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        /*ListaPlatillos<Platillo> lista = new ListaPlatillos(pedido);
+        jList1.setModel(lista);
+        
+        AbstractListModel<Platillo> modeloLista = new AbstractListModel(){
+            Platillo[] platillos = pedido.recargarPlatillos();
+            public int getSize() {return platillos.length;}
+            public Platillo getElementAt(int i) {
+                return platillos[i];
+            }
+            private Platillo[] recargarPlatillos() {
+                return pedido.getPlatillos(new Platillos[limite]);
+            }
+        };
+        */
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        jScrollPane1 = recargarLista();
+
+        /*jList1.setModel(new javax.swing.AbstractListModel<Componente>() {
+            Componente[] platillos = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        });*/
+        //jScrollPane1.setViewportView(jList1);
 
         buttonTerminarPedido.setText("Terminar");
         buttonTerminarPedido.addActionListener(new ActionListener() {
@@ -52,6 +73,11 @@ public class EdicionPedido extends javax.swing.JPanel {
         });
 
         botonAgregarPlatillo.setText("Agregar");
+        botonAgregarPlatillo.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                // agregado de un nuevo platillo a 
+            }
+        });
 
         jLabel1.setText("Pedido");
 
@@ -85,7 +111,25 @@ public class EdicionPedido extends javax.swing.JPanel {
                     .addComponent(buttonTerminarPedido)
                     .addComponent(botonAgregarPlatillo)))
         );
-    }// </editor-fold>                        
+    }// </editor-fold>           
+    private JScrollPane recargarLista() {
+        List<Platillo> platillos = pedido.getPlatillos();
+        
+        JList lista = new JList(new Vector<Platillo>(platillos));
+        
+        lista.setCellRenderer(new DefaultListCellRenderer() {
+            public Component getListCellRenderComponent(JList<?> lista, Object valor, int index, boolean seleccionado, boolean cellHasFocus) {
+                Component renderer = super.getListCellRendererComponent(lista, valor, index, seleccionado, cellHasFocus);
+                if (renderer instanceof JLabel && valor instanceof Platillo) {
+                    // Here value will be of the Type 'CD'
+                    ((JLabel) renderer).setText(((Platillo) valor).getTitulo());
+                }
+                return renderer;
+            }
+        });
+        JScrollPane scroll = new JScrollPane(lista);
+        return scroll;
+    }
 
     private void generarFactura() {
         frame.generarFactura(pedido);
@@ -95,7 +139,29 @@ public class EdicionPedido extends javax.swing.JPanel {
     private javax.swing.JButton botonAgregarPlatillo;
     private javax.swing.JButton buttonTerminarPedido;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<Componente> jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    // End of variables declaration                   
+    // End of variables declaration       
+    private class ListaPlatillos<T> extends AbstractListModel {
+        private ArrayList<Platillo> listaPlatillos;
+        private Pedido pedido;
+        public ListaPlatillos(Pedido p) {
+            pedido = p;
+            recargarLista();
+        }
+        public int getSize() {
+            return listaPlatillos.size();
+        }
+        public Platillo getElementAt(int i) {
+            return listaPlatillos.get(i);
+        }
+        public void agregarPlatillo(Platillo p) {
+            pedido.agregarPlatillo(p);
+            recargarLista();
+        }
+
+        private void recargarLista() {
+            listaPlatillos = pedido.getPlatillos();
+        }
+    }            
 }

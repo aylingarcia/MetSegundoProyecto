@@ -20,7 +20,7 @@ public class Pedido {
             validarPlatillo(p);
             int ac = 1;
             if (platillos.containsKey(p))
-                int ac += platillos.get(p);
+                ac += platillos.get(p);
             platillos.put(p, ac);
             aumentarCosto(p.getCosto());
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public class Pedido {
         costo += c;
     }
 
-    public getCosto() {
+    public double getCosto() {
         return costo;
     }
 
@@ -40,5 +40,19 @@ public class Pedido {
             throw new Exception(
                 "error debe tener almenos 2 componentes para ser considerado"
                 );
+    }
+
+    public HashMap<Platillo, Integer> getInformacion() {
+        return platillos;
+    }
+    
+    public ArrayList<Platillo> getPlatillos() {
+        ArrayList<Platillo> lista = new ArrayList();
+        Platillo[] p = new Platillo[platillos.keySet().size()];
+        p = platillos.keySet().toArray(p);
+        for (Platillo n: p) {
+            lista.add(n);
+        }
+        return lista;
     }
 }

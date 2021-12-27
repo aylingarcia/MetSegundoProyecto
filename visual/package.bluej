@@ -1,9 +1,9 @@
 #BlueJ package file
-dependency1.from=ManejoEventos
-dependency1.to=VentanaPrincipal
+dependency1.from=VentanaPrincipal
+dependency1.to=ManejoEventos
 dependency1.type=UsesDependency
-dependency2.from=VentanaPrincipal
-dependency2.to=ManejoEventos
+dependency2.from=ManejoEventos
+dependency2.to=VentanaPrincipal
 dependency2.type=UsesDependency
 objectbench.height=163
 objectbench.width=998

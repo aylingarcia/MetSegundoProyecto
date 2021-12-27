@@ -5,7 +5,7 @@ import javax.swing.*;
 
 import visual.VentanaPrincipal;
 import visual.FactoryMethod.*;
-
+// revisar !!
 public class PanelCreacionUsuario extends JPanel {
     private VentanaPrincipal frame;
     private String[] opcionesMapa;
