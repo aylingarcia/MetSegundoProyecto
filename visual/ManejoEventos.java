@@ -1,6 +1,5 @@
 package visual;
 
-
 import visual.FactoryMethod.*;
 import java.io.IOException;
 
@@ -10,6 +9,8 @@ import java.awt.*;
 import javax.swing.*;
 
 import paquetes.PaqueteListener.*;
+
+import visual.ventanas.*;
 
 public class ManejoEventos {
     private VentanaPrincipal frame;
@@ -24,14 +25,14 @@ public class ManejoEventos {
     public void ejecutar(String a) {
         switch (a){
             case "ayuda": 
-            generarVentanaAyuda();
-            break;
+                generarVentanaAyuda();
+                break;
             case "inicio":
-            generarVentanaprincipal();
-            break;
+                generarVentanaprincipal();
+                break;
             case "cerrar" :
-            cerrarApp();
-            break;
+                cerrarApp();
+                break;
             case "pedido automatico":
 
             case "pedido personalizado":
@@ -40,9 +41,12 @@ public class ManejoEventos {
 
             case "editar platillo":
 
+            case "crear usuario":
+                generarPanelCreacionUsuario();
+                break;
             default: 
-            generarVentanaAyudaMicrofono();
-            break;
+                generarVentanaAyudaMicrofono();
+                break;
         }
     }
 
@@ -71,10 +75,9 @@ public class ManejoEventos {
                 escucha.stop();
             escucha = new Thread(microfono= new ReconocedorVoz(this));
             escucha.start();
-            microfono.run();
         } catch (IOException ioe) {}
     }
-    
+
     public void generarPanelCreacionUsuario() {
         factoryPanel = new PanelNuevoUsuarioFactory(frame);
         frame.setVentana(factoryPanel.crearPanel());
@@ -83,6 +86,7 @@ public class ManejoEventos {
     public void desabilitarMicrofono() {
         if (escucha.isAlive()) {
             escucha.stop();
+            microfono.terminar();
         }
     }
 

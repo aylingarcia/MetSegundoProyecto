@@ -1,14 +1,15 @@
 package visual.PanelesFinales;
 
 import clases.Componente;
-import clases.ComponenteEnsalada;
 
 public class PanelComponente extends javax.swing.JPanel {
+    private Componente c;
     /**
      * Creates new form PanelComponente
      */
     public PanelComponente(Componente c) {
-        initComponents(c);
+        this.c = c;
+        initComponents();
     }
 
     /**
@@ -18,7 +19,7 @@ public class PanelComponente extends javax.swing.JPanel {
     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents(Componente c) {
+    private void initComponents() {
 
         labelImagen = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -73,7 +74,11 @@ public class PanelComponente extends javax.swing.JPanel {
                 .addComponent(labelCosto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>                        
-
+    
+    public Componente getComponente() {
+        return c;
+    }
+    
     // Variables declaration - do not modify                     
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField labelCosto;

@@ -1,13 +1,34 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 
 <platillos>
-<platillo>
-	<titulo>titulo</titulo>
+<platillo titulo="titulo">
 	<componente>
-		<nombre>papa frita</nombre>
-		<estado>frita</estado>
-		<costo>10</costo>
+		<nombre>pasas</nombre>
+		<estado>disponible</estado>
+		<costo>5</costo>
+	</componente>
+	<componente>
+		<nombre>trozos de pollo</nombre>
+		<estado>agotado</estado>
+		<costo>7</costo>
+	</componente>
+</platillo>
+<platillo titulo="pollo al horno">
+	<componente>
+		<nombre>pollo</nombre>
+		<estado>disponible</estado>
+		<costo>15</costo>
+	</componente>
+	<componente>
+		<nombre>arroz</nombre>
+		<estado>disponible</estado>
+		<costo>7</costo>
 	</componente>
 
+	<componente>
+		<nombre>papa al horno</nombre>
+		<estado>disponible</estado>
+		<costo>9</costo>
+	</componente>
 </platillo>
 </platillos>

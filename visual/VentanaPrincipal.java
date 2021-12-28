@@ -42,13 +42,16 @@ public class VentanaPrincipal extends JFrame {
     public void crearMenu(boolean conUsuario) {
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Inicio");
-        JMenuItem item = new JMenuItem("Hacer Pedido");
-        menu.add(item);
-        item.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent ae) {
-                    eventos.generarPanelTipoPedido();
-                }
-            });
+        JMenuItem item;
+        if(conUsuario) {
+            item = new JMenuItem("Hacer Pedido");
+            menu.add(item);
+            item.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent ae) {
+                        eventos.generarPanelTipoPedido();
+                    }
+                });
+        }
             item = new JMenuItem("Iniciar Sesion");
             menu.add(item);
             item.addActionListener(new ActionListener() {
@@ -168,6 +171,21 @@ public class VentanaPrincipal extends JFrame {
     }
     
     public void generarFactura(Pedido p) {
-        eventos.generarFactura(p, u);
+        eventos.generarFactura();
+    }
+
+    public void generarFramePlatillos(Pedido p) {
+        /**
+         *  en este apartado se crea un frame
+         * que debe tener un escucha y 
+         * con respecto a la seleccion de un platillo
+         * especifico y poder agregarlo a nuestra ventaan
+         * principal  
+         **/
+
+    }
+    public void generarFrameComponentes(Platillo p) {
+        // misma manera generarFramePlatillo();
+        // funciona con componentes
     }
 }

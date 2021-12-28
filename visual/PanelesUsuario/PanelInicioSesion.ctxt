@@ -2,12 +2,12 @@
 comment0.target=PanelInicioSesion
 comment1.params=frame
 comment1.target=PanelInicioSesion(visual.VentanaPrincipal)
-comment1.text=\n\ Creates\ new\ form\ inicioUsuario\n
+comment1.text=\r\n\ Creates\ new\ form\ inicioUsuario\r\n
 comment10.params=evt
 comment10.target=void\ jPasswordField1ActionPerformed(java.awt.event.ActionEvent)
 comment2.params=
 comment2.target=void\ initComponents()
-comment2.text=\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\n\ regenerated\ by\ the\ Form\ Editor.\n
+comment2.text=\r\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\r\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\r\n\ regenerated\ by\ the\ Form\ Editor.\r\n
 comment3.params=evt
 comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment4.params=evt

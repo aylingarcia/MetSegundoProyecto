@@ -1,17 +1,16 @@
 #BlueJ class context
 comment0.target=factura
-comment0.text=\n\n\ @author\ Aylin\n
-comment1.params=
-comment1.target=factura()
-comment1.text=\n\ Creates\ new\ form\ factura\n
-comment2.params=
-comment2.target=void\ initComponents()
-comment2.text=\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\n\ regenerated\ by\ the\ Form\ Editor.\n
+comment1.params=p\ datosUsuario
+comment1.target=factura(clases.Pedido,\ java.lang.String[])
+comment1.text=\r\n\ Creates\ new\ form\ factura\r\n
+comment2.params=p
+comment2.target=void\ initComponents(clases.Pedido)
+comment2.text=\r\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\r\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\r\n\ regenerated\ by\ the\ Form\ Editor.\r\n
 comment3.params=columnIndex
 comment3.target=java.lang.Class\ getColumnClass(int)
 comment4.params=args
 comment4.target=void\ main(java.lang.String[])
-comment4.text=\n\ @param\ args\ the\ command\ line\ arguments\n
+comment4.text=\r\n\ @param\ args\ the\ command\ line\ arguments\r\n
 comment5.params=
 comment5.target=void\ run()
 numComments=6

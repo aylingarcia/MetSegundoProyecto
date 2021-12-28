@@ -2,7 +2,7 @@
 comment0.target=Pedido
 comment1.params=
 comment1.target=Pedido()
-comment1.text=\n\ la\ orden\ debe\ ser\ la\ que\ contiene\ los\ especiales\ agregados\ al\ final\!\n
+comment1.text=\r\n\ la\ orden\ debe\ ser\ la\ que\ contiene\ los\ especiales\ agregados\ al\ final\!\r\n
 comment2.params=p
 comment2.target=void\ agregarPlatillo(Platillo)
 comment3.params=c

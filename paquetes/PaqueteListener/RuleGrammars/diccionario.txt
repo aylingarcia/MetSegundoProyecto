@@ -8,6 +8,7 @@ public <sentence> =
 [<dato3>]
 [<dato4>]
 [<dato5>]
+[<dato6>]
 ;
 <dato0> = cerrar;
 <dato1> = ayuda;
@@ -15,3 +16,4 @@ public <sentence> =
 <dato3> = editar pedido;
 <dato4> = editar platillo;
 <dato5> = algo;
+<dato6> = crear usuario;

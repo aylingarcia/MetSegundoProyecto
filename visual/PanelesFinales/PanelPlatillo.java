@@ -1,15 +1,17 @@
 package visual.PanelesFinales;
 
 import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.event.*;
 
 import java.util.ArrayList;
 
 import clases.Platillo;
 import clases.Componente;
-import clases.ComponenteEnsalada;
 
 public class PanelPlatillo extends JPanel {
     private Platillo platillo;
+    private Componente componenteActual;
     /**
      * Creates new form PanelEdicionPedido
      */
@@ -37,33 +39,52 @@ public class PanelPlatillo extends JPanel {
         CostoLabel = new javax.swing.JTextField();
 
         labelTitulo.setEditable(false);
-        labelTitulo.setText(p.getTitulo().toUpperCase());
+        labelTitulo.setText(platillo.getTitulo().toUpperCase());
 
         //labelImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/examples/MenuBarMicrofono.png"))); // NOI18N
         labelImagen.setLabelFor(jPanel2);
 
-        listaComponentes.setModel(new javax.swing.AbstractListModel<Componente>() {
-            Componente[] componentes = {  };
+        listaComponentes.setModel(new javax.swing.AbstractListModel<PanelComponente>() {
+            PanelComponente[] componentes = generarPaneles(platillo);
             public int getSize() { return componentes.length; }
-            public String getElementAt(int i) { return componentes[i]; }
+            public PanelComponente getElementAt(int i) { return componentes[i]; }
+            private PanelComponente[] generarPaneles(Platillo p) {
+                ArrayList<Componente> lista = p.getComponentes();
+                PanelComponente[] resp = new PanelComponente[lista.size()];
+                for (int i =0 ; i<lista.size(); i++) {
+                    resp[i] = new PanelComponente(lista.get(i));
+                }
+                return resp;
+            }
         });
+        
+        //listaComponentes.setModel(new JList<PanelComponente>());
 
         listaComponentes.addListSelectionListener(
             new ListSelectionListener() {
                 @Override
                 public void valueChanged(ListSelectionEvent lse) {
-                    if (!lse.getValueIsAdjusting) {
-                        (listaComponentes.getSelectedItem())
-                            .addKeyListener(new KeyListener() {
-                                public void keyPressed(KeyEvent ke) {
-                                    int keyCode = ke.getKeyCode();
-                                    if (keyCode == KeyEvent.Vk_UP) {
-                                        //aumentar 
-                                    } else if(keyCode == KeyEvent.Vk_Down) {
-                                        //disminuir
-                                    }  
-                                }
-                            });
+                    if (!lse.getValueIsAdjusting()) {
+                        componenteActual = listaComponentes.getSelectedValue()
+                            .getComponente();
+                        listaComponentes.addKeyListener(new KeyListener() {
+                            @Override 
+                            public void keyPressed(KeyEvent ke) {
+                                int keyCode = ke.getKeyCode();
+                                if (keyCode == KeyEvent.VK_UP)
+                                    platillo.aumentarComponente(1, componenteActual);
+                                else if (keyCode == KeyEvent.VK_DOWN)
+                                    // disminuir
+                                    platillo.aumentarComponente(-1, componenteActual);
+                                recargarPanel();
+                            }
+                            @Override
+                            public void keyReleased(KeyEvent ke) {
+                            }
+                            @Override
+                            public void keyTyped(KeyEvent ke) {
+                            }
+                        });
                     }
 
                 }
@@ -152,7 +173,10 @@ public class PanelPlatillo extends JPanel {
 
     private void CostoLabelActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
-    }                                          
+    }                  
+    private void recargarPanel() {
+        initComponents();
+    }
 
 
     // Variables declaration - do not modify                     
@@ -163,6 +187,6 @@ public class PanelPlatillo extends JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel      labelImagen;
     private javax.swing.JTextField  labelTitulo;
-    private javax.swing.JList<Componente> listaComponentes;
+    private javax.swing.JList<PanelComponente> listaComponentes;
     // End of variables declaration                   
 }

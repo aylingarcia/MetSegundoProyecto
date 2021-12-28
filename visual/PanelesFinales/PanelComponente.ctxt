@@ -2,8 +2,10 @@
 comment0.target=PanelComponente
 comment1.params=c
 comment1.target=PanelComponente(clases.Componente)
-comment1.text=\n\ Creates\ new\ form\ PanelComponente\n
-comment2.params=c
-comment2.target=void\ initComponents(clases.Componente)
-comment2.text=\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\n\ regenerated\ by\ the\ Form\ Editor.\n
-numComments=3
+comment1.text=\r\n\ Creates\ new\ form\ PanelComponente\r\n
+comment2.params=
+comment2.target=void\ initComponents()
+comment2.text=\r\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\r\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\r\n\ regenerated\ by\ the\ Form\ Editor.\r\n
+comment3.params=
+comment3.target=clases.Componente\ getComponente()
+numComments=4

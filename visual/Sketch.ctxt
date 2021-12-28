@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Sketch
+comment1.params=av
+comment1.target=void\ main(java.lang.String[])
+comment10.params=graphic
+comment10.target=void\ paint(java.awt.Graphics)
+comment11.params=e
+comment11.target=void\ mouseMoved(java.awt.event.MouseEvent)
+comment2.params=i
+comment2.target=Sketch(java.awt.Image)
+comment3.params=s
+comment3.target=void\ showStatus(java.lang.String)
+comment4.params=event
+comment4.target=void\ mouseClicked(java.awt.event.MouseEvent)
+comment5.params=event
+comment5.target=void\ mouseEntered(java.awt.event.MouseEvent)
+comment6.params=event
+comment6.target=void\ mouseExited(java.awt.event.MouseEvent)
+comment7.params=event
+comment7.target=void\ mousePressed(java.awt.event.MouseEvent)
+comment8.params=event
+comment8.target=void\ mouseReleased(java.awt.event.MouseEvent)
+comment9.params=event
+comment9.target=void\ mouseDragged(java.awt.event.MouseEvent)
+numComments=12

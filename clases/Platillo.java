@@ -22,6 +22,7 @@ public class Platillo {
             //caracteristicas.add(c);
             componentes.put(c, 1);
         }
+        
     }
     public Platillo(String t) {
         titulo = t;
@@ -34,8 +35,11 @@ public class Platillo {
     }
     public boolean insertarComponente(Componente c) {
         boolean esValido = !existeComponente(c);
-        if (esValido)
+        if (!existeComponente(c)) 
             componentes.put(c, 1);
+        else 
+            aumentarComponente(1, c);
+        aumentarCosto(c, 1);
         return esValido;
     }
     
@@ -56,12 +60,12 @@ public class Platillo {
         // remove a componente pero si es que 
         // pertenece a las caracreristicas entonces no podemos quitarlo
         //if (!caracteristicas.contains(c)) {
-            aumentarCosto(-c.getCosto()*componentes.get(c));
+            aumentarCosto(c, -componentes.get(c));
             componentes.remove(c);
         //}
     }
-    private void aumentarCosto(double c) {
-        costo += c;
+    private void aumentarCosto(Componente c, int a) {
+        costo += c.getCosto()*a;
     }
     
     public int getCantComponente(Componente c) {

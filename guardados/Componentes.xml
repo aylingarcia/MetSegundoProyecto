@@ -1,2 +1,13 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-
+<componentes>
+	<componente>
+		<nombre>pasas</nombre>
+		<estado>disponible</estado>
+		<costo>5</costo>
+	</componente>
+	<componente>
+		<nombre>trozos de pollo</nombre>
+		<estado>agotado</estado>
+		<costo>7</costo>
+	</componente>
+</componentes>

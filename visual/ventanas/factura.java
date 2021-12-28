@@ -20,7 +20,7 @@ public class factura extends javax.swing.JFrame {
      * Creates new form factura
      */
     public factura(Pedido p, String... datosUsuario) {
-        initComponents();
+        initComponents(p);
          this.setTitle( "   factura ");
         this.setLocation( 400, 220);
     }
@@ -173,7 +173,7 @@ public class factura extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new factura().setVisible(true);
+                new factura(new Pedido()).setVisible(true);
             }
         });
     }

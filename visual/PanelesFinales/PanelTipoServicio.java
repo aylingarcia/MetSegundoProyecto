@@ -7,6 +7,8 @@ import javax.swing.*;
 import visual.VentanaPrincipal;
 import visual.PanelesEdicion.*;
 
+import clases.*;
+
 public class PanelTipoServicio extends JPanel {
     private VentanaPrincipal frame;
 
@@ -73,8 +75,12 @@ public class PanelTipoServicio extends JPanel {
     public void cambiarPanel(boolean personalizado) {
         if (personalizado)
             frame.setVentana(new PanelEdicionPersonalizado());
-        else
-            frame.setVentana(new Edicion());
+        else {
+            Platillo p = new Platillo("titulo");
+            Componente c = new Componente("a", "dis", 50.5);
+            p.insertarComponente(c);
+            frame.setVentana(new PanelEdicionPedido(p, frame));
+        }
     }
 
     // variables 

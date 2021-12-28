@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=PanelEdicionPedido
+comment1.params=p\ f
+comment1.target=PanelEdicionPedido(clases.Platillo,\ visual.VentanaPrincipal)
+comment1.text=\r\n\ Creates\ new\ form\ PanelEdicionPedido\r\n
+comment2.params=
+comment2.target=void\ initComponents()
+comment2.text=\r\n\ This\ method\ is\ called\ from\ within\ the\ constructor\ to\ initialize\ the\ form.\r\n\ WARNING\:\ Do\ NOT\ modify\ this\ code.\ The\ content\ of\ this\ method\ is\ always\r\n\ regenerated\ by\ the\ Form\ Editor.\r\n
+comment3.params=evt
+comment3.target=void\ editarBotonActionPerformed(java.awt.event.ActionEvent)
+comment4.params=
+comment4.target=void\ actualizarComponentes()
+numComments=5
